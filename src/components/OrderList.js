@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, AsyncStorage } from 'react';
 import { ScrollView } from 'react-native';
 import OrderDetail from './OrderDetail';
 
@@ -10,7 +10,8 @@ class OrderList extends Component {
   };
 
   componentWillMount() {
-    //Get data from localStorage
+    //Get data from AsyncStorage
+
   }
 
   renderOrders() {

@@ -2,7 +2,21 @@ import React from 'react';
 import { Text, TouchableOpacity, Image } from 'react-native';
 
 const Button = ({ onPress, buttonText, icon, buttonType }) => {
-  const { textStyle, buttonImageStyle, buttonStyle } = styles;
+  const { textStyle, buttonImageStyle } = styles;
+  const buttonStyle = Object.assign({
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: '#007aff',
+    paddingTop: 10,
+    paddingBottom: 10,
+    height: 60,
+    width: 60
+  }, buttonStyle, buttonAvailableStyles[buttonType]);
+
   return (
     <TouchableOpacity onPress={onPress} style={buttonStyle}>
       <Image style={buttonImageStyle} source={{ uri: icon }} />
@@ -11,22 +25,24 @@ const Button = ({ onPress, buttonText, icon, buttonType }) => {
   );
 };
 
+const buttonAvailableStyles = {
+    clear: {
+      backgroundColor: 'red'
+    },
+    settings: {
+      backgroundColor: 'green'
+    },
+    add: {
+      backgroundColor: '#fff',
+      borderWidth: 3,
+      borderColor: '#007aff',
+      marginLeft: 20,
+      marginRight: 20,
+      height: 90,
+      width: 90
+    }
+};
 const styles = {
-  buttonStyle: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 100,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5,
-    paddingTop: 10,
-    paddingBottom: 10,
-    width: 0,
-    height: 50
-  },
   textStyle: {
     alignSelf: 'center',
     color: '#007aff',

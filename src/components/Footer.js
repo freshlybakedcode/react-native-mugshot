@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import Button from './Button';
-import ButtonAdd from './ButtonAdd';
 
 // const Footer = () => {
 const Footer = React.createClass({
@@ -14,9 +13,9 @@ const Footer = React.createClass({
 
     return (
       <View style={footerStyle}>
-        <Button onPress={this.handlePress} buttonText={'CLEAR'} icon={'https://placehold.it/30x30'} />
-        <ButtonAdd onPress={this.handlePress} buttonText={'ADD'} icon={'https://placehold.it/30x30'} />
-        <Button onPress={this.handlePress} buttonText={'SETTINGS'} icon={'https://placehold.it/30x30'} />
+        <Button onPress={this.handlePress} buttonText={'CLEAR'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
+        <Button onPress={this.handlePress} buttonText={'ADD'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
+        <Button onPress={this.handlePress} buttonText={'SETTINGS'} buttonType={'settings'} icon={'https://placehold.it/30x30'} />
       </View>
     );
   },
@@ -29,9 +28,10 @@ const styles = {
     alignItems: 'flex-end',
     flexDirection: 'row',
     backgroundColor: '#333',
-    height: 80,
+    height: 70,
     paddingLeft: 60,
-    paddingRight: 60
+    paddingRight: 60,
+    paddingBottom: 5
   }
 };
 export default Footer;
