@@ -4,8 +4,19 @@ import Button from './Button';
 
 // const Footer = () => {
 const Footer = React.createClass({
-  handlePress() {
-    console.log('Clicky!');
+  handlePressAdd() {
+    console.log('Add');
+  },
+  handlePressClear() {
+    console.log('Clicked clear');
+    console.log(this.state.currentOrder);
+    this.setState({
+      currentOrder: []
+    });
+    console.log(this.state.currentOrder);
+  },
+  handlePressSettings() {
+    console.log('seTtings');
   },
 
   render() {
@@ -13,9 +24,9 @@ const Footer = React.createClass({
 
     return (
       <View style={footerStyle}>
-        <Button onPress={this.handlePress} buttonText={'CLEAR'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-        <Button onPress={this.handlePress} buttonText={'ADD'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
-        <Button onPress={this.handlePress} buttonText={'SETTINGS'} buttonType={'settings'} icon={'https://placehold.it/30x30'} />
+        <Button onPress={this.handlePressClear} buttonText={'CLEAR'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
+        <Button onPress={this.handlePressAdd} buttonText={'ADD'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
+        <Button onPress={this.handlePressSettings} buttonText={'SETTINGS'} buttonType={'settings'} icon={'https://placehold.it/30x30'} />
       </View>
     );
   },

@@ -7,9 +7,6 @@ const OrderDetail = ({ eachOrder }) => {
     thumbnailStyle,
     thumbnailContainerStyle,
     orderContainerStyle
-    // headerContentStyle,
-    // headerTextStyle,
-    // imageStyle
   } = styles;
 
   const milkDisplay = (milk ? 'Yes' : 'No');
@@ -30,15 +27,6 @@ const OrderDetail = ({ eachOrder }) => {
 };
 
 const styles = {
-  // headerContentStyle: {
-  //   flexDirection: 'column',
-  //   justifyContent: 'space-around'
-  // },
-  // headerTextStyle: {
-  //   fontSize: 16,
-  //   marginBottom: -10,
-  //   fontWeight: 'bold'
-  // },
   thumbnailStyle: {
     height: 50,
     width: 50
@@ -48,11 +36,6 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center'
   },
-  // imageStyle: {
-  //   height: 350,
-  //   flex: 1,
-  //   width: null
-  // }
   orderContainerStyle: {
     borderBottomWidth: 1,
     borderColor: '#ddd',
