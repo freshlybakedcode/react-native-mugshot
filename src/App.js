@@ -12,7 +12,7 @@ class App extends Component {
 
   state = {
     headerText: 'Order list',
-    currentView: 'orderList',
+    currentView: 'addDrink',
     currentOrder: [
       { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
       { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }
@@ -100,7 +100,7 @@ class App extends Component {
       return (
         <Footer>
           <Button onPress={() => this.handlePressBack()} buttonText={'CANCEL'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-          <Button onPress={() => this.handlePressAddThisDrink()} buttonText={'GO!'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
+          <Button onPress={() => this.handlePressAddThisDrink()} buttonText={'SAVE!'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
         </Footer>
       );
       case 'settings':

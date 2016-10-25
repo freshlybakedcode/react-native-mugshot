@@ -21,10 +21,11 @@ const styles = {
     paddingTop: 25,
     paddingBottom: 15,
     shadowColor: '#333',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
     elevation: 2,
-    position: 'relative'
+    position: 'relative',
+    marginBottom: 5
   },
   textStyle: {
     fontSize: 16,
