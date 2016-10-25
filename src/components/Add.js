@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, Image, Switch } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, Image, Switch, Picker } from 'react-native';
+
+const Item = Picker.Item;
 
 class Add extends Component {
 
   state = {
-    drink: null,
+    drink: 'coffee',
     milk: true,
-    sugar: 0,
+    sugar: 0
   };
 
   handleSubtractSugar() {
@@ -20,9 +22,10 @@ class Add extends Component {
   handleAddSugar() {
     if (this.state.sugar < 100) {
       this.setState({
-        sugar: this.state.sugar + 1
+        sugar: ++this.state.sugar
       });
     }
+    console.log(this.state);
   }
 
   render() {
@@ -32,7 +35,9 @@ class Add extends Component {
       optionStyle,
       labelStyle,
       containerStyle,
+      pickerContainerStyle,
       wrapperStyle,
+      pickerStyle,
       addSugarButton,
       addSugarText,
       subtractSugarButton,
@@ -47,18 +52,29 @@ class Add extends Component {
             <Text style={optionStyle}>Add Mugshot</Text>
           </TouchableOpacity>
         </View>
-        <View style={containerStyle}>
+        <View style={pickerContainerStyle}>
           <Text style={labelStyle}>Drink</Text>
-          <Text style={optionStyle}>Coffee Tea</Text>
+          <View style={optionStyle}>
+
+            <Picker
+              style={pickerStyle}
+              selectedValue={this.state.drink}
+              onValueChange={(drink) => this.setState({ drink })}
+            >
+              <Item label="Coffee" value="coffee" />
+              <Item label="Tea" value="tea" />
+            </Picker>
+
+          </View>
         </View>
         <View style={containerStyle}>
           <Text style={labelStyle}>Milk</Text>
-          <Text style={optionStyle}>
+          <View style={optionStyle}>
             <Switch
               onValueChange={(value) => this.setState({ milk: value })}
               value={this.state.milk}
             />
-          </Text>
+          </View>
         </View>
         <View style={containerStyle}>
           <Text style={labelStyle}>Sugar</Text>
@@ -92,16 +108,34 @@ const styles = {
   optionStyle: {
     flex: 2,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    // backgroundColor: 'orange'
   },
   labelStyle: {
-    flex: 1
+    flex: 1,
+    // backgroundColor: 'purple'
   },
   containerStyle: {
     height: 60,
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    // backgroundColor: 'indigo'
+  },
+  pickerContainerStyle: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 75,
+    // backgroundColor: 'green'
+  },
+  pickerStyle: {
+    flex: 1,
+    // backgroundColor: 'skyblue',
+    marginTop: -165,
+    paddingTop: 0,
+    top: 0,
+    height: 50
   },
   wrapperStyle: {
     padding: 20
