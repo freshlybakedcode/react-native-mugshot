@@ -1,41 +1,17 @@
 import React from 'react';
 import { View } from 'react-native';
-import Button from './Button';
 
-// const Footer = () => {
-const Footer = React.createClass({
-  handlePressAdd() {
-    console.log('Add');
-  },
-  handlePressClear() {
-    console.log('Clicked clear');
-    console.log(this.state.currentOrder);
-    this.setState({
-      currentOrder: []
-    });
-    console.log(this.state.currentOrder);
-  },
-  handlePressSettings() {
-    console.log('seTtings');
-  },
-
-  render() {
-    const { footerStyle } = styles;
-
+const Footer = (props) => {
     return (
-      <View style={footerStyle}>
-        <Button onPress={this.handlePressClear} buttonText={'CLEAR'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-        <Button onPress={this.handlePressAdd} buttonText={'ADD'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
-        <Button onPress={this.handlePressSettings} buttonText={'SETTINGS'} buttonType={'settings'} icon={'https://placehold.it/30x30'} />
+      <View style={styles.footerStyle}>
+        {props.children}
       </View>
     );
-  },
-});
+};
 
 const styles = {
   footerStyle: {
     flex: 0,
-    justifyContent: 'space-around',
     alignItems: 'flex-end',
     flexDirection: 'row',
     backgroundColor: '#333',

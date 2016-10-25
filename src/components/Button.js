@@ -4,7 +4,6 @@ import { Text, TouchableOpacity, Image } from 'react-native';
 const Button = ({ onPress, buttonText, icon, buttonType }) => {
   const { textStyle, buttonImageStyle } = styles;
   const buttonStyle = Object.assign({
-    flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     backgroundColor: '#fff',
