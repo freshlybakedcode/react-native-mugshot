@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   handlePressAddThisDrink() {
+    console.log(this.state);
     this.setState({
       headerText: 'Order list',
       currentView: 'orderList',

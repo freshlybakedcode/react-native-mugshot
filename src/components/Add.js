@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, Image, Switch, Picker } from 'react-native';
-
-const Item = Picker.Item;
+import {
+  ScrollView,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  Switch,
+  SegmentedControlIOS
+} from 'react-native';
 
 class Add extends Component {
 
   state = {
-    drink: 'coffee',
+    drink: 0,
     milk: true,
     sugar: 0
   };
@@ -35,9 +41,7 @@ class Add extends Component {
       optionStyle,
       labelStyle,
       containerStyle,
-      pickerContainerStyle,
       wrapperStyle,
-      pickerStyle,
       addSugarButton,
       addSugarText,
       subtractSugarButton,
@@ -52,20 +56,16 @@ class Add extends Component {
             <Text style={optionStyle}>Add Mugshot</Text>
           </TouchableOpacity>
         </View>
-        <View style={pickerContainerStyle}>
-          <Text style={labelStyle}>Drink</Text>
-          <View style={optionStyle}>
-
-            <Picker
-              style={pickerStyle}
-              selectedValue={this.state.drink}
-              onValueChange={(drink) => this.setState({ drink })}
-            >
-              <Item label="Coffee" value="coffee" />
-              <Item label="Tea" value="tea" />
-            </Picker>
-
-          </View>
+        <View style={containerStyle}>
+          <Text style={labelStyle}>Drink:</Text>
+          <SegmentedControlIOS
+            style={{ flex: 2 }}
+            values={['Coffee', 'Tea']}
+            selectedIndex={this.state.drink}
+            onChange={(event) => {
+              this.setState({ drink: event.nativeEvent.selectedSegmentIndex });
+            }}
+          />
         </View>
         <View style={containerStyle}>
           <Text style={labelStyle}>Milk</Text>
@@ -79,10 +79,16 @@ class Add extends Component {
         <View style={containerStyle}>
           <Text style={labelStyle}>Sugar</Text>
           <View style={optionStyle}>
-            <TouchableOpacity style={subtractSugarButton} onPress={() => this.handleSubtractSugar()}>
+            <TouchableOpacity
+              style={subtractSugarButton}
+              onPress={() => this.handleSubtractSugar()}
+            >
               <Text style={subtractSugarText}>-</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={addSugarButton} onPress={() => this.handleAddSugar()}>
+            <TouchableOpacity
+              style={addSugarButton}
+              onPress={() => this.handleAddSugar()}
+            >
               <Text style={addSugarText}>{this.state.sugar}</Text>
             </TouchableOpacity>
           </View>
