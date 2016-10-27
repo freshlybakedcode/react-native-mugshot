@@ -9,6 +9,9 @@ import {
   SegmentedControlIOS
 } from 'react-native';
 
+import Footer from './Footer';
+import Button from './Button';
+
 class Add extends Component {
 
   state = {
@@ -31,7 +34,22 @@ class Add extends Component {
         sugar: ++this.state.sugar
       });
     }
-    console.log(this.state);
+  }
+
+  sendDrinkData() {
+    this.props.receiveDrinkData(this.state);
+  }
+
+  handleButtonPress(button) {
+    if (button === 'cancel') {
+        const data = {
+          headerText: 'Order list',
+          currentView: 'orderList'
+        };
+        this.props.changeView(data);
+    } else {
+      return false;
+    }
   }
 
   render() {
@@ -49,6 +67,7 @@ class Add extends Component {
     } = styles;
 
     return (
+      <View style={{ flex: 1 }}>
       <ScrollView style={wrapperStyle}>
         <View>
           <TouchableOpacity style={cameraButtonStyle}>
@@ -94,6 +113,11 @@ class Add extends Component {
           </View>
         </View>
       </ScrollView>
+      <Footer>
+        <Button onPress={() => this.handleButtonPress('cancel')} buttonText={'CANCEL'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
+        <Button onPress={() => this.sendDrinkData()} buttonText={'SAVE!'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
+      </Footer>
+      </View>
     );
   }
 }

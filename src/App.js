@@ -9,26 +9,36 @@ import Add from './components/Add';
 import Settings from './components/Settings';
 
 class App extends Component {
-
-  state = {
-    headerText: 'Order list',
-    currentView: 'addDrink',
-    currentOrder: [
-      { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
-      { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }
-    ],
-    orderLength: 2
-  };
-
-  handlePressAdd() {
-    this.setState({
-      headerText: 'Add a drink',
-      currentView: 'addDrink'
-    });
+  constructor() {
+    super();
+    this.state = {
+      headerText: 'Order list',
+      currentView: 'orderList',
+      currentOrder: [
+        { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
+        { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }
+      ],
+      orderLength: 2
+    };
+    this.handleAddDrinkData = this.handleAddDrinkData.bind(this);
+    this.changeView = this.changeView.bind(this);
+    this.clearOrders = this.clearOrders.bind(this);
   }
 
-  handlePressAddThisDrink() {
-    console.log(this.state);
+  changeView(viewData) {
+      this.setState({
+        headerText: viewData.headerText,
+        currentView: viewData.currentView
+      });
+  }
+
+  handleAddDrinkData(drinkData) {
+    console.log(drinkData);
+    if (drinkData.drink === 0) {
+      drinkData.drink = 'Coffee';
+    } else {
+      drinkData.drink = 'Tea';
+    }
     this.setState({
       headerText: 'Order list',
       currentView: 'orderList',
@@ -37,34 +47,19 @@ class App extends Component {
         ...this.state.currentOrder,
         {
           id: this.state.orderLength,
-          drink: 'sweet coffee',
-          milk: true,
-          sugar: 4,
+          drink: drinkData.drink,
+          milk: drinkData.milk,
+          sugar: drinkData.sugar,
           image: 'https://placehold.it/50x50'
         }
       ]
     });
   }
 
-  handlePressClear() {
+  clearOrders() {
     this.setState({
       currentOrder: [],
       orderLength: 0
-    });
-  }
-
-  handlePressSettings() {
-    console.log('seTtings');
-    this.setState({
-      headerText: 'Settings',
-      currentView: 'settings'
-    });
-  }
-
-  handlePressBack() {
-    this.setState({
-      headerText: 'Order list',
-      currentView: 'orderList'
     });
   }
 
@@ -72,15 +67,24 @@ class App extends Component {
     switch (this.state.currentView) {
       case 'orderList':
         return (
-          <OrderList currentOrder={this.state.currentOrder} />
+          <OrderList
+            currentOrder={this.state.currentOrder}
+            changeView={this.changeView}
+            clearOrders={this.clearOrders}
+          />
         );
       case 'addDrink':
         return (
-          <Add />
+          <Add
+            receiveDrinkData={this.handleAddDrinkData}
+            changeView={this.changeView}
+          />
         );
       case 'settings':
         return (
-          <Settings />
+          <Settings
+            changeView={this.changeView}
+          />
         );
       default:
         return false;
@@ -90,26 +94,11 @@ class App extends Component {
   renderFooter() {
     switch (this.state.currentView) {
       case 'orderList':
-      return (
-        <Footer>
-          <Button onPress={() => this.handlePressClear()} buttonText={'CLEAR'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-          <Button onPress={() => this.handlePressAdd()} buttonText={'ADD'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
-          <Button onPress={() => this.handlePressSettings()} buttonText={'SETTINGS'} buttonType={'settings'} icon={'https://placehold.it/30x30'} />
-        </Footer>
-      );
+      return false;
       case 'addDrink':
-      return (
-        <Footer>
-          <Button onPress={() => this.handlePressBack()} buttonText={'CANCEL'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-          <Button onPress={() => this.handlePressAddThisDrink()} buttonText={'SAVE!'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
-        </Footer>
-      );
+      return false;
       case 'settings':
-      return (
-        <Footer>
-          <Button onPress={() => this.handlePressBack()} buttonText={'BACK'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-        </Footer>
-      );
+      return false;
       default:
         return false;
     }

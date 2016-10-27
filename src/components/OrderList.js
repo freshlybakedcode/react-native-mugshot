@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
+
 import OrderDetail from './OrderDetail';
+import Footer from './Footer';
+import Button from './Button';
 
 class OrderList extends Component {
 
-  // componentWillMount(currentOrder) {
-  //   this.setState = {
-  //     currentOrder
-  //   };
-  //   console.log('OrderList.js, componentWillMount currentOrder: ', currentOrder);
-  // }
-
-  // constructor(currentOrder) {
-  //   super(currentOrder);
-  //   this.state = {
-  //     currentOrder
-  //   };
-  //   console.log('OrderList.js, this.state.currentOrder: ', this.state.currentOrder);
-  // }
-
-  // componentDidMount(currentOrder) {
-  //   this.setState = {
-  //     currentOrder
-  //   };
-  //
-  //   console.log('OrderList.js, componentDidMount currentOrder: ', currentOrder);
-  // }
-
+  handleButtonPress(button) {
+    if (button === 'add') {
+        const data = {
+          headerText: 'Add a drink',
+          currentView: 'addDrink'
+        };
+        this.props.changeView(data);
+    } else if (button === 'clear') {
+      this.props.clearOrders();
+    } else if (button === 'settings') {
+        const data = {
+          headerText: 'Settings',
+          currentView: 'settings'
+        };
+        this.props.changeView(data);
+    } else {
+      return false;
+    }
+  }
+  
   renderOrders() {
     console.log('OrderList.js, this.props.currentOrder:', this.props.currentOrder);
     if (this.props.currentOrder !== null) {
@@ -42,9 +42,16 @@ class OrderList extends Component {
 
   render() {
     return (
-      <ScrollView>
-        {this.renderOrders()}
-      </ScrollView>
+      <View style={{ flex: 1 }}>
+        <ScrollView>
+          {this.renderOrders()}
+        </ScrollView>
+        <Footer>
+          <Button onPress={() => this.handleButtonPress('clear')} buttonText={'CLEAR'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
+          <Button onPress={() => this.handleButtonPress('add')} buttonText={'ADD'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
+          <Button onPress={() => this.handleButtonPress('settings')} buttonText={'SETTINGS'} buttonType={'settings'} icon={'https://placehold.it/30x30'} />
+        </Footer>
+      </View>
     );
   }
 
