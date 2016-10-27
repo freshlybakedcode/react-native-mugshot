@@ -1,3 +1,7 @@
 {
-  "extends": "rallycoding"
+"extends": "rallycoding",
+  "rules": {
+    "global-require": "off",
+    "no-param-reassign": "off"
+  }
 }

@@ -3,8 +3,6 @@ import React, { Component, AsyncStorage } from 'react';
 import { View } from 'react-native';
 import Header from './components/Header';
 import OrderList from './components/OrderList';
-import Footer from './components/Footer';
-import Button from './components/Button';
 import Add from './components/Add';
 import Settings from './components/Settings';
 
@@ -91,19 +89,6 @@ class App extends Component {
     }
   }
 
-  renderFooter() {
-    switch (this.state.currentView) {
-      case 'orderList':
-      return false;
-      case 'addDrink':
-      return false;
-      case 'settings':
-      return false;
-      default:
-        return false;
-    }
-  }
-
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -111,7 +96,6 @@ class App extends Component {
           <Header headerText={this.state.headerText} />
         </View>
         {this.renderCurrentView()}
-        {this.renderFooter()}
       </View>
     );
   }

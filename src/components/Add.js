@@ -138,30 +138,25 @@ const styles = {
   optionStyle: {
     flex: 2,
     flexDirection: 'row',
-    alignItems: 'center',
-    // backgroundColor: 'orange'
+    alignItems: 'center'
   },
   labelStyle: {
     flex: 1,
-    // backgroundColor: 'purple'
   },
   containerStyle: {
     height: 60,
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    // backgroundColor: 'indigo'
+    alignItems: 'center'
   },
   pickerContainerStyle: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    height: 75,
-    // backgroundColor: 'green'
+    height: 75
   },
   pickerStyle: {
     flex: 1,
-    // backgroundColor: 'skyblue',
     marginTop: -165,
     paddingTop: 0,
     top: 0,
