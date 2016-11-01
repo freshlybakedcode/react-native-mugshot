@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       headerText: 'Order list',
-      currentView: 'addDrink',
+      currentView: 'orderList',
       currentOrder: [
         { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
         { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }

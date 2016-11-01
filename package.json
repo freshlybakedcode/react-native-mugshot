@@ -11,7 +11,7 @@
     "react-native": "0.35.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-swipe-list-view": "^0.3.0",
-    "react-native-swipeout": "^2.0.12"
+    "react-native-swipeout": "git://github.com/dancormier/react-native-swipeout.git"
   },
   "jest": {
     "preset": "jest-react-native"

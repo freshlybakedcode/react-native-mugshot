@@ -1,6 +1,19 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
+import Swipeout from 'react-native-swipeout';
+// var Swipeout = require('react-native-swipeout');
 
+// Buttons
+const swipeoutBtns = [
+  {
+    text: 'Delete',
+    backgroundColor: 'red',
+    onPress: () => {
+      //this.deleteNote(rowData)
+      console.log('Deleting', this);
+    }
+  }
+];
 const OrderDetail = ({ eachOrder }) => {
   const { drink, milk, sugar, image } = eachOrder;
   const {
@@ -13,16 +26,18 @@ const OrderDetail = ({ eachOrder }) => {
   const sugarDisplay = (sugar : 'None');
 
   return (
-    <View style={orderContainerStyle}>
-      <View style={thumbnailContainerStyle}>
-        <Image style={thumbnailStyle} source={{ uri: image }} />
+    <Swipeout right={swipeoutBtns}>
+      <View style={orderContainerStyle}>
+        <View style={thumbnailContainerStyle}>
+          <Image style={thumbnailStyle} source={{ uri: image }} />
+        </View>
+        <View>
+          <Text>Drink: {drink}</Text>
+          <Text>Milk?: {milkDisplay}</Text>
+          <Text>Sugar: {sugarDisplay}</Text>
+        </View>
       </View>
-      <View>
-        <Text>Drink: {drink}</Text>
-        <Text>Milk?: {milkDisplay}</Text>
-        <Text>Sugar: {sugarDisplay}</Text>
-      </View>
-    </View>
+    </Swipeout>
   );
 };
 
