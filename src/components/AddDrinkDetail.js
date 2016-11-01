@@ -4,27 +4,21 @@ import {
   View,
   Text,
   TouchableOpacity,
+  Image,
   Switch,
   SegmentedControlIOS
 } from 'react-native';
 
 import Footer from './Footer';
 import Button from './Button';
-import AddCameraImage from './AddCameraImage';
-import AddCameraImageButton from './AddCameraImageButton';
 
-class Add extends Component {
-  constructor() {
-    super();
-    this.state = {
-      drink: 0,
-      milk: true,
-      sugar: 0,
-      cameraActive: false,
-      image: { path: null }
-    };
-    this.showHideCamera = this.showHideCamera.bind(this);
-  }
+class AddDrinkDetail extends Component {
+
+  state = {
+    drink: 0,
+    milk: true,
+    sugar: 0
+  };
 
   handleSubtractSugar() {
     if (this.state.sugar > 0) {
@@ -57,31 +51,13 @@ class Add extends Component {
       return false;
     }
   }
-
-  showHideCamera(data) {
-    this.setState({
-      cameraActive: !this.state.cameraActive
-    });
-    if (data) {
-      this.setState({
-        image: data
-      });
-    }
+  loadCamera() {
+    this.props.callCamera();
   }
-
-  renderCameraSection() {
-    if (this.state.cameraActive) {
-      return (
-        <AddCameraImage returnToOrderList={this.showHideCamera} />
-      );
-    }
-    return (
-      <AddCameraImageButton showCamera={this.showHideCamera} image={this.state.image.path} />
-    );
-  }
-
   render() {
     const {
+      cameraButtonStyle,
+      cameraImageStyle,
       optionStyle,
       labelStyle,
       containerStyle,
@@ -96,7 +72,13 @@ class Add extends Component {
       <View style={{ flex: 1 }}>
       <ScrollView style={wrapperStyle}>
         <View>
-          {this.renderCameraSection()}
+          <TouchableOpacity
+            style={cameraButtonStyle}
+            onPress={() => this.loadCamera()}
+          >
+            <Image style={cameraImageStyle} source={require('../images/camera.png')} />
+            <Text style={optionStyle}>Add Mugshot</Text>
+          </TouchableOpacity>
         </View>
         <View style={containerStyle}>
           <Text style={labelStyle}>Drink:</Text>
@@ -138,7 +120,7 @@ class Add extends Component {
       </ScrollView>
       <Footer>
         <Button onPress={() => this.handleButtonPress('cancel')} buttonText={'CANCEL'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-        <Button onPress={() => this.sendDrinkData()} buttonText={'SAVE!'} buttonType={'add'} icon={'https://placehold.it/30x30'} disabledStatus={this.state.cameraActive} />
+        <Button onPress={() => this.sendDrinkData()} buttonText={'SAVE!'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
       </Footer>
       </View>
     );
@@ -146,6 +128,18 @@ class Add extends Component {
 }
 
 const styles = {
+  cameraButtonStyle: {
+    flex: 1,
+    alignItems: 'center',
+    marginBottom: 20
+  },
+  cameraImageStyle: {
+    width: 200,
+    height: 200,
+    backgroundColor: '#007aff',
+    borderRadius: 100,
+    resizeMode: 'contain'
+  },
   optionStyle: {
     flex: 2,
     flexDirection: 'row',
@@ -207,4 +201,4 @@ const styles = {
   },
 };
 
-export default Add;
+export default AddDrinkDetail;

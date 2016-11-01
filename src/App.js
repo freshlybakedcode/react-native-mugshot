@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       headerText: 'Order list',
-      currentView: 'orderList',
+      currentView: 'addDrink',
       currentOrder: [
         { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
         { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }
@@ -37,6 +37,9 @@ class App extends Component {
     } else {
       drinkData.drink = 'Tea';
     }
+    if (drinkData.image.path === null) {
+      drinkData.image.path = 'https://placehold.it/50x50';
+    }
     this.setState({
       headerText: 'Order list',
       currentView: 'orderList',
@@ -48,7 +51,7 @@ class App extends Component {
           drink: drinkData.drink,
           milk: drinkData.milk,
           sugar: drinkData.sugar,
-          image: 'https://placehold.it/50x50'
+          image: drinkData.image.path
         }
       ]
     });
@@ -60,7 +63,9 @@ class App extends Component {
       orderLength: 0
     });
   }
-
+  handleMyTest() {
+    console.log('MyTest fired');
+  }
   renderCurrentView() {
     switch (this.state.currentView) {
       case 'orderList':
@@ -75,6 +80,7 @@ class App extends Component {
         return (
           <Add
             receiveDrinkData={this.handleAddDrinkData}
+            myTest={this.handleMyTest}
             changeView={this.changeView}
           />
         );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, Image } from 'react-native';
 
-const Button = ({ onPress, buttonText, icon, buttonType }) => {
+const Button = ({ onPress, buttonText, icon, buttonType, disabledStatus }) => {
   const { textStyle, buttonImageStyle } = styles;
   const buttonStyle = Object.assign({
     flexDirection: 'column',
@@ -17,7 +17,7 @@ const Button = ({ onPress, buttonText, icon, buttonType }) => {
   }, buttonStyle, buttonAvailableStyles[buttonType]);
 
   return (
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+    <TouchableOpacity onPress={onPress} style={buttonStyle} disabled={disabledStatus}>
       <Image style={buttonImageStyle} source={{ uri: icon }} />
       <Text style={textStyle}>{buttonText}</Text>
     </TouchableOpacity>
