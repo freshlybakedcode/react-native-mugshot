@@ -41,7 +41,6 @@ class App extends Component {
       drinkData.image.path = 'https://placehold.it/50x50';
     }
     this.setState({
-      
       headerText: 'Order list',
       currentView: 'orderList',
       orderLength: this.state.orderLength + 1,
