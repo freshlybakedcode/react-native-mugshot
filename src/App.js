@@ -19,6 +19,7 @@ class App extends Component {
       orderLength: 2
     };
     this.handleAddDrinkData = this.handleAddDrinkData.bind(this);
+    this.handleDeleteDrinkData = this.handleDeleteDrinkData.bind(this);
     this.changeView = this.changeView.bind(this);
     this.clearOrders = this.clearOrders.bind(this);
   }
@@ -57,8 +58,21 @@ class App extends Component {
     });
   }
 
-  handleDeleteDrinkData(id) {
-    console.log('Deleting (App.js): ', id);
+  handleDeleteDrinkData(data) {
+    console.log('Deleting ID: ', data);
+    const arr = (this.state.currentOrder);
+    const attr = 'id';
+    let i = arr.length;
+    while (i--) {
+       if (arr[i]
+        && arr[i].hasOwnProperty(attr)
+        && (arr[i][attr] === data)) {
+           arr.splice(i, 1);
+       }
+    }
+    this.setState({
+      currentOrder: arr
+    });
   }
 
   clearOrders() {

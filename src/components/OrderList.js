@@ -55,7 +55,6 @@ class OrderList extends Component {
       </View>
     );
   }
-
 }
 
 export default OrderList;
