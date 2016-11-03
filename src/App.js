@@ -1,6 +1,8 @@
 //Import library to create component
 import React, { Component, AsyncStorage } from 'react';
 import { View } from 'react-native';
+import RNFS from 'react-native-fs';
+
 import Header from './components/Header';
 import OrderList from './components/OrderList';
 import Add from './components/Add';
@@ -67,11 +69,23 @@ class App extends Component {
        if (arr[i]
         && arr[i].hasOwnProperty(attr)
         && (arr[i][attr] === data)) {
-           arr.splice(i, 1);
+          this.deleteImageFromDisk(arr[i].image); //Call the function to delete the actual file
+          arr.splice(i, 1);
        }
     }
     this.setState({
       currentOrder: arr
+    });
+  }
+  deleteImageFromDisk(file) {
+    console.log('Gonna try and delete ', file);
+    return RNFS.unlink(file)
+    .then(() => {
+      console.log('FILE DELETED');
+    })
+    // `unlink` will throw an error, if the item to unlink does not exist
+    .catch((err) => {
+      console.log(err.message);
     });
   }
 
