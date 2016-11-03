@@ -57,14 +57,15 @@ class App extends Component {
     });
   }
 
+  handleDeleteDrinkData(id) {
+    console.log('Deleting (App.js): ', id);
+  }
+
   clearOrders() {
     this.setState({
       currentOrder: [],
       orderLength: 0
     });
-  }
-  handleMyTest() {
-    console.log('MyTest fired');
   }
   renderCurrentView() {
     switch (this.state.currentView) {
@@ -74,13 +75,13 @@ class App extends Component {
             currentOrder={this.state.currentOrder}
             changeView={this.changeView}
             clearOrders={this.clearOrders}
+            deleteDrinkData={this.handleDeleteDrinkData}
           />
         );
       case 'addDrink':
         return (
           <Add
             receiveDrinkData={this.handleAddDrinkData}
-            myTest={this.handleMyTest}
             changeView={this.changeView}
           />
         );

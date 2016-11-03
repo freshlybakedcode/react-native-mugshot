@@ -1,45 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import Swipeout from 'react-native-swipeout';
-// var Swipeout = require('react-native-swipeout');
 
-// Buttons
-const swipeoutBtns = [
-  {
-    text: 'Delete',
-    backgroundColor: 'red',
-    onPress: () => {
-      //this.deleteNote(rowData)
-      console.log('Deleting', this);
-    }
+class OrderDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      drink: props.eachOrder.drink,
+      milk: props.eachOrder.milk,
+      sugar: props.eachOrder.sugar,
+      id: props.eachOrder.id,
+      image: props.eachOrder.image
+    };
   }
-];
-const OrderDetail = ({ eachOrder }) => {
-  const { drink, milk, sugar, image } = eachOrder;
-  const {
-    thumbnailStyle,
-    thumbnailContainerStyle,
-    orderContainerStyle
-  } = styles;
 
-  const milkDisplay = (milk ? 'Yes' : 'No');
-  const sugarDisplay = (sugar : 'None');
+  render() {
+    const milkDisplay = (this.state.milk ? 'Yes' : 'No');
+    const sugarDisplay = (this.state.sugar : 'None');
 
-  return (
-    <Swipeout right={swipeoutBtns}>
-      <View style={orderContainerStyle}>
-        <View style={thumbnailContainerStyle}>
-          <Image style={thumbnailStyle} source={{ uri: image }} />
+    const {
+      thumbnailStyle,
+      thumbnailContainerStyle,
+      orderContainerStyle
+    } = styles;
+
+    const swipeoutBtns = [{
+      text: 'Delete',
+      backgroundColor: 'red',
+      onPress: () => {
+        // console.log('Deleting', eachOrder.id);
+        this.props.deleteDrinkData(this.state.id);
+      }
+    }];
+
+    return (
+      <Swipeout right={swipeoutBtns} autoClose>
+        <View style={orderContainerStyle}>
+          <View style={thumbnailContainerStyle}>
+            <Image style={thumbnailStyle} source={{ uri: this.state.image }} />
+          </View>
+          <View>
+            <Text>Drink: {this.state.drink}</Text>
+            <Text>Milk?: {milkDisplay}</Text>
+            <Text>Sugar: {sugarDisplay}</Text>
+          </View>
         </View>
-        <View>
-          <Text>Drink: {drink}</Text>
-          <Text>Milk?: {milkDisplay}</Text>
-          <Text>Sugar: {sugarDisplay}</Text>
-        </View>
-      </View>
-    </Swipeout>
-  );
-};
+      </Swipeout>
+    );
+  }
+}
 
 const styles = {
   thumbnailStyle: {

@@ -26,7 +26,7 @@ class OrderList extends Component {
       return false;
     }
   }
-  
+
   renderOrders() {
     console.log('OrderList.js, this.props.currentOrder:', this.props.currentOrder);
     if (this.props.currentOrder !== null) {
@@ -34,6 +34,7 @@ class OrderList extends Component {
         <OrderDetail
           key={eachOrder.id}
           eachOrder={eachOrder}
+          deleteDrinkData={this.props.deleteDrinkData}
         />
       );
     }
