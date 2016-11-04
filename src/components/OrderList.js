@@ -4,6 +4,7 @@ import { ScrollView, View } from 'react-native';
 import OrderDetail from './OrderDetail';
 import Footer from './Footer';
 import Button from './Button';
+import NoOrders from './NoOrders';
 
 class OrderList extends Component {
 
@@ -29,7 +30,7 @@ class OrderList extends Component {
 
   renderOrders() {
     console.log('OrderList.js, this.props.currentOrder:', this.props.currentOrder);
-    if (this.props.currentOrder !== null) {
+    if (this.props.currentOrder.length !== 0) {
       return this.props.currentOrder.map(eachOrder =>
         <OrderDetail
           key={eachOrder.id}
@@ -38,7 +39,9 @@ class OrderList extends Component {
         />
       );
     }
-    console.log('No orders!');
+    return (
+      <NoOrders />
+    );
   }
 
   render() {

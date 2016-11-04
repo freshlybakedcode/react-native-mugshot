@@ -14,10 +14,11 @@ class App extends Component {
     this.state = {
       headerText: 'Order list',
       currentView: 'orderList',
-      currentOrder: [
-        { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
-        { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }
-      ],
+      currentOrder: [],
+      // currentOrder: [
+      //   { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
+      //   { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }
+      // ],
       orderLength: 2
     };
     this.handleAddDrinkData = this.handleAddDrinkData.bind(this);
