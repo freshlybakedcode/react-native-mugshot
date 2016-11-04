@@ -1,6 +1,6 @@
 //Import library to create component
-import React, { Component, AsyncStorage } from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react';
+import { View, AsyncStorage } from 'react-native';
 import RNFS from 'react-native-fs';
 
 import Header from './components/Header';
@@ -15,16 +15,36 @@ class App extends Component {
       headerText: 'Order list',
       currentView: 'orderList',
       currentOrder: [],
+      orderLength: 0
       // currentOrder: [
       //   { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
       //   { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }
       // ],
-      orderLength: 2
+      // orderLength: 2
     };
     this.handleAddDrinkData = this.handleAddDrinkData.bind(this);
     this.handleDeleteDrinkData = this.handleDeleteDrinkData.bind(this);
     this.changeView = this.changeView.bind(this);
     this.clearOrders = this.clearOrders.bind(this);
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('currentOrder').then((currentOrderStr) => {
+      const currentOrder = JSON.parse(currentOrderStr);
+      if (currentOrder != null) {
+        this.setState({ currentOrder });
+      }
+      console.log(this.state);
+    }).done();
+
+    AsyncStorage.getItem('orderLength').then((orderLengthStr) => {
+      const orderLength = JSON.parse(orderLengthStr);
+      console.log('on load, orderlength:', orderLength);
+      if (orderLength != null) {
+        this.setState({ orderLength });
+      }
+      console.log('on load, this.state: ', this.state);
+    }).done();
   }
 
   changeView(viewData) {
@@ -35,7 +55,7 @@ class App extends Component {
   }
 
   handleAddDrinkData(drinkData) {
-    console.log(drinkData);
+    console.log('handleAddDrinkData, drinkData: ', drinkData);
     if (drinkData.drink === 0) {
       drinkData.drink = 'Coffee';
     } else {
@@ -58,7 +78,18 @@ class App extends Component {
           image: drinkData.image.path
         }
       ]
+    }, function afterUpdate() {
+      console.log('handleAddDrinkData this.state: ', this.state);
+      this.saveDrinkData();
     });
+  }
+
+  saveDrinkData() {
+    AsyncStorage.setItem('currentOrder', JSON.stringify(this.state.currentOrder));
+    AsyncStorage.setItem('orderLength', JSON.stringify(this.state.orderLength));
+    console.log('saveDrinkData() this.state.currentOrder: ', this.state.currentOrder);
+    console.log('saveDrinkData() JSON.stringify this.state.currentOrder: ', JSON.stringify(this.state.currentOrder));
+    console.log('orderLenfth', JSON.stringify(this.state.orderLength));
   }
 
   handleDeleteDrinkData(data) {
@@ -77,6 +108,7 @@ class App extends Component {
     this.setState({
       currentOrder: arr
     });
+    this.saveDrinkData();
   }
   deleteImageFromDisk(file) {
     console.log('Gonna try and delete ', file);
@@ -94,8 +126,11 @@ class App extends Component {
     this.setState({
       currentOrder: [],
       orderLength: 0
+    }, function afterUpdate() {
+      this.saveDrinkData();
     });
   }
+
   renderCurrentView() {
     switch (this.state.currentView) {
       case 'orderList':

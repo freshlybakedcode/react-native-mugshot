@@ -29,7 +29,7 @@ class OrderList extends Component {
   }
 
   renderOrders() {
-    console.log('OrderList.js, this.props.currentOrder:', this.props.currentOrder);
+    // console.log('OrderList.js, this.props.currentOrder:', this.props.currentOrder);
     if (this.props.currentOrder.length !== 0) {
       return this.props.currentOrder.map(eachOrder =>
         <OrderDetail
