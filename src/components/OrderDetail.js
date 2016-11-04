@@ -21,7 +21,10 @@ class OrderDetail extends Component {
     const {
       thumbnailStyle,
       thumbnailContainerStyle,
-      orderContainerStyle
+      orderContainerStyle,
+      orderTextStyle,
+      orderListStyle,
+      individualOrderStyle
     } = styles;
 
     const swipeoutBtns = [{
@@ -40,9 +43,30 @@ class OrderDetail extends Component {
             <Image style={thumbnailStyle} source={{ uri: this.state.image }} />
           </View>
           <View>
-            <Text>Drink: {this.state.drink}</Text>
-            <Text>Milk?: {milkDisplay}</Text>
-            <Text>Sugar: {sugarDisplay}</Text>
+            <View style={individualOrderStyle}>
+              <Text style={orderListStyle}>
+                Drink
+              </Text>
+              <Text style={orderTextStyle}>
+                {this.state.drink}
+              </Text>
+            </View>
+            <View style={individualOrderStyle}>
+              <Text style={orderListStyle}>
+                Milk?
+              </Text>
+              <Text style={orderTextStyle}>
+                {milkDisplay}
+              </Text>
+            </View>
+            <View style={individualOrderStyle}>
+              <Text style={orderListStyle}>
+                Sugar
+              </Text>
+              <Text style={orderTextStyle}>
+                {sugarDisplay}
+              </Text>
+            </View>
           </View>
         </View>
       </Swipeout>
@@ -52,8 +76,8 @@ class OrderDetail extends Component {
 
 const styles = {
   thumbnailStyle: {
-    height: 50,
-    width: 50
+    height: 130,
+    width: 130
   },
   thumbnailContainerStyle: {
     marginRight: 15,
@@ -67,7 +91,21 @@ const styles = {
     padding: 5,
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    position: 'relative'
+    position: 'relative',
+    alignItems: 'center'
+  },
+  orderListStyle: {   //The drink/milk/sugar bit
+    fontSize: 16,
+    width: 60
+  },
+  orderTextStyle: {   //The Coffee/Yes/1 bit
+    fontWeight: 'bold',
+    fontSize: 18
+  },
+  individualOrderStyle: { //The wrapper around the orderList and orderText
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 7
   }
 };
 

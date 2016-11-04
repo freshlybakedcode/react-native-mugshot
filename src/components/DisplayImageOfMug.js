@@ -19,7 +19,7 @@ const styles = {
     height: 200,
     backgroundColor: '#007aff',
     borderRadius: 100,
-    resizeMode: 'contain'
+    resizeMode: 'cover'
   },
   optionStyle: {
     flex: 2,

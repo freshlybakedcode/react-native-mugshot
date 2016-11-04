@@ -149,7 +149,7 @@ const styles = {
   optionStyle: {
     flex: 2,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   labelStyle: {
     flex: 1,
@@ -178,21 +178,21 @@ const styles = {
   },
   addSugarButton: {
     backgroundColor: '#007aff',
-    width: 45,
-    height: 45,
-    borderRadius: 45,
+    width: 65,
+    height: 65,
+    borderRadius: 65,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   addSugarText: {
     color: 'white',
-    fontSize: 20
+    fontSize: 22
   },
   subtractSugarButton: {
     backgroundColor: '#007aff',
-    width: 40,
-    height: 40,
-    borderRadius: 40,
+    width: 50,
+    height: 50,
+    borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,

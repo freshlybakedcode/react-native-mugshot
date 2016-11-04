@@ -1,4 +1,3 @@
-//Import library to create component
 import React, { Component } from 'react';
 import { View, AsyncStorage } from 'react-native';
 import RNFS from 'react-native-fs';
@@ -16,11 +15,6 @@ class App extends Component {
       currentView: 'orderList',
       currentOrder: [],
       orderLength: 0
-      // currentOrder: [
-      //   { id: 0, drink: 'coffee', milk: true, sugar: 1, image: 'https://placehold.it/50x50' },
-      //   { id: 1, drink: 'tea', milk: false, sugar: 0, image: 'https://placehold.it/50x50' }
-      // ],
-      // orderLength: 2
     };
     this.handleAddDrinkData = this.handleAddDrinkData.bind(this);
     this.handleDeleteDrinkData = this.handleDeleteDrinkData.bind(this);
@@ -34,35 +28,35 @@ class App extends Component {
       if (currentOrder != null) {
         this.setState({ currentOrder });
       }
-      console.log(this.state);
+      // console.log(this.state);
     }).done();
 
     AsyncStorage.getItem('orderLength').then((orderLengthStr) => {
       const orderLength = JSON.parse(orderLengthStr);
-      console.log('on load, orderlength:', orderLength);
+      // console.log('on load, orderlength:', orderLength);
       if (orderLength != null) {
         this.setState({ orderLength });
       }
-      console.log('on load, this.state: ', this.state);
+      // console.log('on load, this.state: ', this.state);
     }).done();
   }
 
   changeView(viewData) {
-      this.setState({
-        headerText: viewData.headerText,
-        currentView: viewData.currentView
-      });
+    this.setState({
+      headerText: viewData.headerText,
+      currentView: viewData.currentView
+    });
   }
 
   handleAddDrinkData(drinkData) {
-    console.log('handleAddDrinkData, drinkData: ', drinkData);
+    // console.log('handleAddDrinkData, drinkData: ', drinkData);
     if (drinkData.drink === 0) {
       drinkData.drink = 'Coffee';
     } else {
       drinkData.drink = 'Tea';
     }
     if (drinkData.image.path === null) {
-      drinkData.image.path = 'https://placehold.it/50x50';
+      drinkData.image.path = 'https://placehold.it/100x100';
     }
     this.setState({
       headerText: 'Order list',
@@ -79,7 +73,7 @@ class App extends Component {
         }
       ]
     }, function afterUpdate() {
-      console.log('handleAddDrinkData this.state: ', this.state);
+      // console.log('handleAddDrinkData this.state: ', this.state);
       this.saveDrinkData();
     });
   }
@@ -87,9 +81,9 @@ class App extends Component {
   saveDrinkData() {
     AsyncStorage.setItem('currentOrder', JSON.stringify(this.state.currentOrder));
     AsyncStorage.setItem('orderLength', JSON.stringify(this.state.orderLength));
-    console.log('saveDrinkData() this.state.currentOrder: ', this.state.currentOrder);
-    console.log('saveDrinkData() JSON.stringify this.state.currentOrder: ', JSON.stringify(this.state.currentOrder));
-    console.log('orderLenfth', JSON.stringify(this.state.orderLength));
+    // console.log('saveDrinkData() this.state.currentOrder: ', this.state.currentOrder);
+    // console.log('saveDrinkData() JSON.stringify this.state.currentOrder: ', JSON.stringify(this.state.currentOrder));
+    // console.log('orderLenfth', JSON.stringify(this.state.orderLength));
   }
 
   handleDeleteDrinkData(data) {
@@ -111,7 +105,7 @@ class App extends Component {
     this.saveDrinkData();
   }
   deleteImageFromDisk(file) {
-    console.log('Gonna try and delete ', file);
+    // console.log('Gonna try and delete ', file);
     return RNFS.unlink(file)
     .then(() => {
       console.log('FILE DELETED');
@@ -171,6 +165,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

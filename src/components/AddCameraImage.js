@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   preview: {
     flex: 1,
     justifyContent: 'flex-end',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     height: (Dimensions.get('window').height) - 400,
     width: (Dimensions.get('window').width) - 35
   },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     color: '#000',
     padding: 10,
-    margin: 40
+    margin: 0
   }
 });
 
