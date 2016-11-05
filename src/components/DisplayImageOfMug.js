@@ -8,7 +8,7 @@ const ImageOfCamera = (props) => {
         style={styles.cameraImageStyle}
         source={{ uri: props.image }}
       />
-      <Text style={styles.optionStyle}>Retake Mugshot</Text>
+      <Text style={styles.optionStyle}>Touch to retake Mugshot</Text>
     </View>
   );
 };
@@ -24,7 +24,10 @@ const styles = {
   optionStyle: {
     flex: 2,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 5,
+    fontWeight: 'bold',
+    fontSize: 12
   }
 };
 

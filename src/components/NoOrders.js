@@ -1,13 +1,17 @@
 import React from 'react';
-import { Text, Image } from 'react-native';
+import { Text, Image, View } from 'react-native';
 
 const NoOrders = () => {
-  const { textStyle, backgroundImage } = styles;
+  const { textStyle, backgroundImage, imageAligner, clearTextBackground } = styles;
   return (
-      <Image source={require('../images/stains.jpg')} style={backgroundImage}>
-        <Text style={textStyle}>No orders!</Text>
-        <Text style={textStyle}>Touch 'Add' to get started!</Text>
+    <View style={imageAligner}>
+      <Image source={require('../images/stains.png')} style={backgroundImage}>
+        <View style={clearTextBackground}>
+          <Text style={textStyle}>No orders!</Text>
+          <Text style={textStyle}>Touch 'Add' to get started</Text>
+        </View>
       </Image>
+    </View>
   );
 };
 
@@ -17,9 +21,17 @@ const styles = {
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover', // or 'stretch'
+    resizeMode: 'contain', // or 'stretch'
+  },
+  imageAligner: {
+    alignItems: 'center',
+  },
+  clearTextBackground: {
+    flex: 0,
+    backgroundColor: 'rgba(0,0,0,0)',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 50
   }
 };
 export default NoOrders;
