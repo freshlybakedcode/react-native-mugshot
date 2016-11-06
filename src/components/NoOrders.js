@@ -25,6 +25,7 @@ const styles = {
   },
   imageAligner: {
     alignItems: 'center',
+    flex: 1
   },
   clearTextBackground: {
     flex: 0,
