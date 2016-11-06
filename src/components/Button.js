@@ -49,7 +49,18 @@ const buttonAvailableStyles = {
       height: 100,
       width: 100,
       justifyContent: 'center'
+    },
+    done: {
+      borderWidth: 2,
+      borderColor: '#333',
+      borderRadius: 50,
+      marginLeft: 30,
+      marginRight: 30,
+      height: 100,
+      width: 100,
+      justifyContent: 'center'
     }
+
 };
 const buttonImageAvailableStyles = {
   add: {
@@ -64,11 +75,19 @@ const buttonImageAvailableStyles = {
   settings: {
     width: 25,
     height: 25
+  },
+  done: {
+    width: 38,
+    height: 30
   }
 
 };
 const buttonTextAvailableStyles = {
   add: {
+    fontWeight: 'bold',
+    fontSize: 12
+  },
+  done: {
     fontWeight: 'bold',
     fontSize: 12
   }

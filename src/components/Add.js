@@ -144,8 +144,8 @@ class Add extends Component {
         />
         <Button
           onPress={() => this.sendDrinkData()}
-          buttonText={'SAVE!'} buttonType={'add'}
-          icon={require('../images/add_drink.png')}
+          buttonText={'DONE'} buttonType={'done'}
+          icon={require('../images/tick.png')}
           disabledStatus={this.state.cameraActive}
         />
         <View style={{ width: 70 }} />
