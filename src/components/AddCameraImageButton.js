@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Text,
   TouchableOpacity,
 } from 'react-native';
 
@@ -9,6 +8,9 @@ import DisplayImageOfMug from './DisplayImageOfMug';
 
 class AddCameraImageButton extends Component {
   showCamera() {
+    if (this.props.image !== null) {                //Delete the initial image taken
+      this.props.deleteImage(this.props.image);
+    }
     this.props.showCamera();
   }
   displayImage() {

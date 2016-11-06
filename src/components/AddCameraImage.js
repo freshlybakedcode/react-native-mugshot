@@ -12,7 +12,7 @@ class AddCameraImage extends Component {
   takePicture() {
     this.camera.capture()
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         this.props.returnToOrderList(data);
       })
       .catch(err => console.error(err));

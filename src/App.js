@@ -78,9 +78,6 @@ class App extends Component {
   saveDrinkData() {
     AsyncStorage.setItem('currentOrder', JSON.stringify(this.state.currentOrder));
     AsyncStorage.setItem('orderLength', JSON.stringify(this.state.orderLength));
-    // console.log('saveDrinkData() this.state.currentOrder: ', this.state.currentOrder);
-    // console.log('saveDrinkData() JSON.stringify this.state.currentOrder: ', JSON.stringify(this.state.currentOrder));
-    // console.log('orderLenfth', JSON.stringify(this.state.orderLength));
   }
 
   handleDeleteDrinkData(data) {
@@ -142,6 +139,7 @@ class App extends Component {
           <Add
             receiveDrinkData={this.handleAddDrinkData}
             changeView={this.changeView}
+            deleteImage={this.deleteImageFromDisk}
           />
         );
       case 'settings':

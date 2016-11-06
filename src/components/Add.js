@@ -76,7 +76,11 @@ class Add extends Component {
       );
     }
     return (
-      <AddCameraImageButton showCamera={this.showHideCamera} image={this.state.image.path} />
+      <AddCameraImageButton
+        showCamera={this.showHideCamera}
+        image={this.state.image.path}
+        deleteImage={this.props.deleteImage} 
+      />
     );
   }
 
