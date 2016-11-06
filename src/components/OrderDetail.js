@@ -14,12 +14,22 @@ class OrderDetail extends Component {
     };
   }
 
+  insertImage() {
+    if (this.state.image === null) {
+      return (
+        <Image style={{ width: 130, height: 130 }} source={require('../images/generic_cup.png')} />
+      );
+    }
+    return (
+      <Image style={{ width: 130, height: 130 }} source={{ uri: this.state.image }} />
+    );
+  }
+
   render() {
     const milkDisplay = (this.state.milk ? 'Yes' : 'No');
     const sugarDisplay = (this.state.sugar : 'None');
 
     const {
-      thumbnailStyle,
       thumbnailContainerStyle,
       orderContainerStyle,
       orderTextStyle,
@@ -40,7 +50,7 @@ class OrderDetail extends Component {
       <Swipeout right={swipeoutBtns} autoClose>
         <View style={orderContainerStyle}>
           <View style={thumbnailContainerStyle}>
-            <Image style={thumbnailStyle} source={{ uri: this.state.image }} />
+            {this.insertImage()}
           </View>
           <View>
             <View style={individualOrderStyle}>

@@ -55,9 +55,6 @@ class App extends Component {
     } else {
       drinkData.drink = 'Tea';
     }
-    if (drinkData.image.path === null) {
-      drinkData.image.path = 'https://placehold.it/100x100';
-    }
     this.setState({
       headerText: 'Order list',
       currentView: 'orderList',
