@@ -114,6 +114,10 @@ class App extends Component {
   }
 
   clearOrders() {
+    // Need to delete all the data from the user's disk before removing from state
+    for (let i = 0; i < this.state.currentOrder.length; i++) {
+      this.handleDeleteDrinkData(i);
+    }
     this.setState({
       currentOrder: [],
       orderLength: 0
