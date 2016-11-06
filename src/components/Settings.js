@@ -39,7 +39,12 @@ class Settings extends Component {
           </View>
         </ScrollView>
         <Footer>
-          <Button onPress={() => this.handleButtonPress('cancel')} buttonText={'CANCEL'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
+          <Button
+            onPress={() => this.handleButtonPress('cancel')}
+            buttonText={'BACK'} buttonType={'cancel'}
+            icon={require('../images/back_arrow.png')}
+          />
+          <View style={{ width: 230 }} /> 
         </Footer>
       </View>
     );

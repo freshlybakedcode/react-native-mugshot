@@ -137,8 +137,18 @@ class Add extends Component {
         </View>
       </ScrollView>
       <Footer>
-        <Button onPress={() => this.handleButtonPress('cancel')} buttonText={'CANCEL'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-        <Button onPress={() => this.sendDrinkData()} buttonText={'SAVE!'} buttonType={'add'} icon={'https://placehold.it/30x30'} disabledStatus={this.state.cameraActive} />
+        <Button
+          onPress={() => this.handleButtonPress('cancel')}
+          buttonText={'BACK'} buttonType={'cancel'}
+          icon={require('../images/back_arrow.png')}
+        />
+        <Button
+          onPress={() => this.sendDrinkData()}
+          buttonText={'SAVE!'} buttonType={'add'}
+          icon={require('../images/add_drink.png')}
+          disabledStatus={this.state.cameraActive}
+        />
+        <View style={{ width: 70 }} />
       </Footer>
       </View>
     );

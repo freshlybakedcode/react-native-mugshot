@@ -13,11 +13,12 @@ const styles = {
   footerStyle: {
     flex: 0,
     alignItems: 'flex-end',
+    justifyContent: 'center',
     flexDirection: 'row',
     backgroundColor: '#333',
-    height: 70,
-    paddingLeft: 60,
-    paddingRight: 60,
+    height: 80,
+    // paddingLeft: 60,
+    // paddingRight: 60,
     paddingBottom: 5
   }
 };

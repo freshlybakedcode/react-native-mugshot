@@ -51,9 +51,24 @@ class OrderList extends Component {
           {this.renderOrders()}
         </ScrollView>
         <Footer>
-          <Button onPress={() => this.handleButtonPress('clear')} buttonText={'CLEAR'} buttonType={'clear'} icon={'https://placehold.it/30x30'} />
-          <Button onPress={() => this.handleButtonPress('add')} buttonText={'ADD'} buttonType={'add'} icon={'https://placehold.it/30x30'} />
-          <Button onPress={() => this.handleButtonPress('settings')} buttonText={'SETTINGS'} buttonType={'settings'} icon={'https://placehold.it/30x30'} />
+          <Button
+            onPress={() => this.handleButtonPress('clear')}
+            buttonText={'CLEAR'}
+            buttonType={'clear'}
+            icon={require('../images/clear_drinks.png')}
+          />
+          <Button
+            onPress={() => this.handleButtonPress('add')}
+            buttonText={'ADD'}
+            buttonType={'add'}
+            icon={require('../images/add_drink.png')}
+          />
+          <Button
+            onPress={() => this.handleButtonPress('settings')}
+            buttonText={'SETTINGS'}
+            buttonType={'settings'}
+            icon={require('../images/settings.png')}
+          />
         </Footer>
       </View>
     );
