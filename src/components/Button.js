@@ -22,7 +22,7 @@ const Button = ({ onPress, buttonText, icon, buttonType, disabledStatus }) => {
     alignSelf: 'center',
     color: '#222636',
     fontSize: 9,
-    marginTop: 10,
+    marginTop: 8,
     fontWeight: 'bold'
   }, buttonTextStyle, buttonTextAvailableStyles[buttonType]);
 
@@ -76,8 +76,8 @@ const buttonImageAvailableStyles = {
     marginTop: 10
   },
   settings: {
-    width: 25,
-    height: 25
+    width: 30,
+    height: 30
   },
   done: {
     width: 38,
@@ -91,6 +91,9 @@ const buttonTextAvailableStyles = {
   },
   done: {
     fontSize: 12
+  },
+  settings: {
+    marginTop: 5
   }
 };
 
