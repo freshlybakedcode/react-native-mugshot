@@ -2,13 +2,22 @@ import React from 'react';
 import { Text, Image, View } from 'react-native';
 
 const NoOrders = () => {
-  const { textStyle, backgroundImage, imageAligner, clearTextBackground } = styles;
+  const {
+    textStyleHeading,
+    textStyleInstructions,
+    backgroundImage,
+    imageAligner,
+    clearTextBackground
+  } = styles;
+
   return (
     <View style={imageAligner}>
       <Image source={require('../images/stains.png')} style={backgroundImage}>
         <View style={clearTextBackground}>
-          <Text style={textStyle}>No orders!</Text>
-          <Text style={textStyle}>Touch 'Add' to get started</Text>
+          <Text style={textStyleHeading}>No orders!</Text>
+          <Text style={textStyleInstructions}>touch 'ADD' to get started</Text>
+          <Text style={textStyleInstructions}>swipe left to delete individual orders</Text>
+          <Text style={textStyleInstructions}>touch 'CLEAR' to delete all orders</Text>
         </View>
       </Image>
     </View>
@@ -16,8 +25,16 @@ const NoOrders = () => {
 };
 
 const styles = {
-  textStyle: {
-    fontSize: 20
+  textStyleHeading: {
+    fontSize: 22,
+    color: '#222636',
+    marginBottom: 15
+  },
+  textStyleInstructions: {
+    fontSize: 13,
+    fontWeight: 'bold',
+    color: '#222636',
+    marginBottom: 5
   },
   backgroundImage: {
     flex: 1,
@@ -32,7 +49,7 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0)',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 50
+    paddingTop: 20
   }
 };
 export default NoOrders;

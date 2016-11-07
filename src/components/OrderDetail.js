@@ -106,11 +106,13 @@ const styles = {
   },
   orderListStyle: {   //The drink/milk/sugar bit
     fontSize: 16,
-    width: 60
+    width: 60,
+    color: '#222636'
   },
   orderTextStyle: {   //The Coffee/Yes/1 bit
     fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 18,
+    color: '#222636'
   },
   individualOrderStyle: { //The wrapper around the orderList and orderText
     flexDirection: 'row',

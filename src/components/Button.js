@@ -20,9 +20,10 @@ const Button = ({ onPress, buttonText, icon, buttonType, disabledStatus }) => {
 
   const buttonTextStyle = Object.assign({
     alignSelf: 'center',
-    color: '#333',
+    color: '#222636',
     fontSize: 9,
     marginTop: 10,
+    fontWeight: 'bold'
   }, buttonTextStyle, buttonTextAvailableStyles[buttonType]);
 
   return (
@@ -41,24 +42,26 @@ const buttonAvailableStyles = {
       // backgroundColor: 'green'
     },
     add: {
-      borderWidth: 2,
-      borderColor: '#333',
+      borderWidth: 6,
+      borderColor: '#212535',
       borderRadius: 50,
       marginLeft: 30,
       marginRight: 30,
       height: 100,
       width: 100,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      overflow: 'hidden'
     },
     done: {
-      borderWidth: 2,
-      borderColor: '#333',
+      borderWidth: 6,
+      borderColor: '#212535',
       borderRadius: 50,
       marginLeft: 30,
       marginRight: 30,
       height: 100,
       width: 100,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      overflow: 'hidden'
     }
 
 };
@@ -84,11 +87,9 @@ const buttonImageAvailableStyles = {
 };
 const buttonTextAvailableStyles = {
   add: {
-    fontWeight: 'bold',
     fontSize: 12
   },
   done: {
-    fontWeight: 'bold',
     fontSize: 12
   }
 };

@@ -15,7 +15,7 @@ const styles = {
     alignItems: 'flex-end',
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: '#333',
+    backgroundColor: '#212535',
     height: 80,
     // paddingLeft: 60,
     // paddingRight: 60,

@@ -13,6 +13,8 @@ import Button from './Button';
 import AddCameraImage from './AddCameraImage';
 import AddCameraImageButton from './AddCameraImageButton';
 
+const styleBackground = '#52586c';
+
 class Add extends Component {
   constructor() {
     super();
@@ -79,7 +81,7 @@ class Add extends Component {
       <AddCameraImageButton
         showCamera={this.showHideCamera}
         image={this.state.image.path}
-        deleteImage={this.props.deleteImage} 
+        deleteImage={this.props.deleteImage}
       />
     );
   }
@@ -105,6 +107,7 @@ class Add extends Component {
         <View style={containerStyle}>
           <Text style={labelStyle}>Drink:</Text>
           <SegmentedControlIOS
+            tintColor={styleBackground}
             style={{ flex: 2 }}
             values={['Coffee', 'Tea']}
             selectedIndex={this.state.drink}
@@ -112,11 +115,13 @@ class Add extends Component {
               this.setState({ drink: event.nativeEvent.selectedSegmentIndex });
             }}
           />
+          <View style={{ flex: 1 }} />
         </View>
         <View style={containerStyle}>
           <Text style={labelStyle}>Milk</Text>
           <View style={optionStyle}>
             <Switch
+              onTintColor={styleBackground}
               onValueChange={(value) => this.setState({ milk: value })}
               value={this.state.milk}
             />
@@ -161,12 +166,13 @@ class Add extends Component {
 
 const styles = {
   optionStyle: {
-    flex: 2,
+    flex: 3,
     flexDirection: 'row',
     alignItems: 'center',
   },
   labelStyle: {
     flex: 1,
+    marginRight: 20
   },
   containerStyle: {
     height: 60,
@@ -191,34 +197,40 @@ const styles = {
     padding: 20
   },
   addSugarButton: {
-    backgroundColor: '#007aff',
+    backgroundColor: styleBackground,
     width: 65,
     height: 65,
     borderRadius: 65,
     alignItems: 'center',
     justifyContent: 'center',
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 1,
+    // shadowRadius: 1
   },
   addSugarText: {
     color: 'white',
     fontSize: 22
   },
   subtractSugarButton: {
-    backgroundColor: '#007aff',
-    width: 50,
-    height: 50,
-    borderRadius: 50,
+    backgroundColor: styleBackground,
+    width: 38,
+    height: 38,
+    borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,
-    borderWidth: 6,
-    borderColor: 'white'
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 1,
+    // shadowRadius: 1
   },
   subtractSugarText: {
     color: 'white',
     fontSize: 24,
     lineHeight: 14,
     marginTop: 11
-  },
+  }
 };
 
 export default Add;

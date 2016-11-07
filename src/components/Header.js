@@ -23,13 +23,14 @@ const styles = {
     shadowColor: '#333',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.4,
+    shadowRadius: 2,
     elevation: 2,
     position: 'relative',
     marginBottom: 5
   },
   textStyle: {
     fontSize: 16,
-    color: '#333'
+    color: '#222636'
   }
 };
 

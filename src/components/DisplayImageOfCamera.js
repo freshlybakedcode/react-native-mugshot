@@ -16,8 +16,8 @@ const styles = {
     height: 200,
     backgroundColor: '#ededed',
     borderRadius: 100,
-    borderColor: '#dedede',
-    borderWidth: 2,
+    borderColor: '#bcbcbc',
+    borderWidth: 1,
     resizeMode: 'contain'
   },
   optionStyle: {
@@ -26,7 +26,8 @@ const styles = {
     alignItems: 'center',
     paddingTop: 5,
     fontWeight: 'bold',
-    fontSize: 12
+    fontSize: 12,
+    color: '#222636'
   }
 };
 
