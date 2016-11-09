@@ -26,14 +26,22 @@ class OrderDetail extends Component {
   }
 
   render() {
-    const milkDisplay = (this.state.milk ? 'Yes' : 'No');
-    const sugarDisplay = (this.state.sugar : 'None');
+    const milkDisplay = (this.state.milk ? 'With milk' : 'Without milk');
+    let sugarDisplay = '';
+
+    if (this.state.sugar === 0) {
+      sugarDisplay = 'No sugar';
+    } else if (this.state.sugar === 1) {
+      sugarDisplay = '1 sugar';
+    } else if (this.state.sugar > 1) {
+      sugarDisplay = this.state.sugar + ' sugars';
+    }
 
     const {
       thumbnailContainerStyle,
       orderContainerStyle,
       orderTextStyle,
-      orderListStyle,
+      orderTextStyleDrink,
       individualOrderStyle
     } = styles;
 
@@ -54,25 +62,16 @@ class OrderDetail extends Component {
           </View>
           <View>
             <View style={individualOrderStyle}>
-              <Text style={orderListStyle}>
-                Drink
-              </Text>
-              <Text style={orderTextStyle}>
-                {this.state.drink}
+              <Text style={orderTextStyleDrink}>
+                {this.state.drink.toUpperCase()}
               </Text>
             </View>
             <View style={individualOrderStyle}>
-              <Text style={orderListStyle}>
-                Milk?
-              </Text>
               <Text style={orderTextStyle}>
                 {milkDisplay}
               </Text>
             </View>
             <View style={individualOrderStyle}>
-              <Text style={orderListStyle}>
-                Sugar
-              </Text>
               <Text style={orderTextStyle}>
                 {sugarDisplay}
               </Text>
@@ -90,7 +89,7 @@ const styles = {
     width: 130
   },
   thumbnailContainerStyle: {
-    marginRight: 15,
+    marginRight: 25,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -104,15 +103,17 @@ const styles = {
     position: 'relative',
     alignItems: 'center'
   },
-  orderListStyle: {   //The drink/milk/sugar bit
-    fontSize: 16,
-    width: 60,
-    color: '#222636'
+  orderTextStyleDrink: {  //Drink specific (larger)
+    fontSize: 22,
+    color: '#222636',
+    // fontWeight: 'bold',
+    marginBottom: 7
   },
-  orderTextStyle: {   //The Coffee/Yes/1 bit
+  orderTextStyle: {   //The with milk/sugar bit
     fontWeight: 'bold',
-    fontSize: 18,
-    color: '#222636'
+    fontSize: 14,
+    color: '#222636',
+    marginTop: -5
   },
   individualOrderStyle: { //The wrapper around the orderList and orderText
     flexDirection: 'row',
