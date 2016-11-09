@@ -4,7 +4,8 @@ import {
   Dimensions,
   StyleSheet,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native';
 import Camera, { constants } from 'react-native-camera';
 
@@ -39,7 +40,12 @@ class AddCameraImage extends Component {
             <TouchableOpacity
               style={styles.captureButtonInner}
               onPress={() => this.takePicture()}
-            />
+            >
+              <Image
+                style={{ width: 25, height: 21 }}
+                source={require('../images/take_picture.png')}
+              />
+            </TouchableOpacity>
           </TouchableOpacity>
         </Camera>
       </View>
@@ -83,7 +89,9 @@ const styles = StyleSheet.create({
     height: 56,
     borderRadius: 56,
     borderWidth: 2,
-    borderColor: '#333'
+    borderColor: '#333',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 

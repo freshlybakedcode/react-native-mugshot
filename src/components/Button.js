@@ -10,7 +10,7 @@ const Button = ({ onPress, buttonText, icon, buttonType, disabledStatus }) => {
     paddingTop: 10,
     paddingBottom: 10,
     height: 70,
-    width: 70,
+    width: 70
   }, buttonStyle, buttonAvailableStyles[buttonType]);
 
   const buttonImageStyle = Object.assign({
