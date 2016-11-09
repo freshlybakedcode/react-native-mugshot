@@ -29,11 +29,11 @@ class Settings extends Component {
         <ScrollView style={{ marginLeft: 10, marginRight: 10 }}>
           <Text style={basicText}>The <Text style={{ fontWeight: 'bold' }}>pro version</Text> of Mugshot has a whole bunch of awesome settings:</Text>
           <Text style={basicText}>
-            <Text style={{ fontStyle: 'italic' }}>- Custom drink</Text> configurations and titles{"\n"}
-            <Text style={{ fontStyle: 'italic' }}>- Infinite adjustability</Text> for milkiness{"\n"}
-            <Text style={{ fontStyle: 'italic' }}>- Fine tune</Text> sugar quantities and{"\n"}
-            <Text style={{ fontStyle: 'italic' }}>- Unlimited order</Text> numbers{"\n"}
-            <Text>- Left and right handed modes{"\n"}</Text>
+            <Text style={{ fontStyle: 'italic' }}>- Custom drink configurations and titles{"\n"}</Text>
+            <Text style={{ fontStyle: 'italic' }}>- Infinite adjustability for milkiness{"\n"}</Text>
+            <Text style={{ fontStyle: 'italic' }}>- Fine tune sugar quantities{"\n"}</Text>
+            <Text style={{ fontStyle: 'italic' }}>- Unlimited order numbers{"\n"}</Text>
+            <Text style={{ fontStyle: 'italic' }}>- Left and right handed modes</Text>
           </Text>
           <Text style={basicText}>all <Text style={{ fontWeight: 'bold' }}>COMING SOON!</Text></Text>
           <View style={centeredView}>
