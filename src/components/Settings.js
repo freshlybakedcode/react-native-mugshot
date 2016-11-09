@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, Image } from 'react-native';
 
 import Footer from './Footer';
 import Button from './Button';
@@ -19,23 +19,28 @@ class Settings extends Component {
   }
 
   render() {
+    const {
+      centeredView,
+      imageStyle,
+      basicText,
+    } = styles;
     return (
       <View style={{ flex: 1 }}>
-        <ScrollView>
-          <View>
-            <Text>Settings</Text>
-          </View>
-          <View>
-            <Text>Option:</Text>
-            <Text>OPtion option topdk</Text>
-          </View>
-          <View>
-            <Text>Optiopn</Text>
-            <Text>Yes No</Text>
-          </View>
-          <View>
-            <Text>Moar option</Text>
-            <Text>Yup nope</Text>
+        <ScrollView style={{ marginLeft: 10, marginRight: 10 }}>
+          <Text style={basicText}>The <Text style={{ fontWeight: 'bold' }}>pro version</Text> of Mugshot has a whole bunch of awesome settings:</Text>
+          <Text style={basicText}>
+            <Text style={{ fontStyle: 'italic' }}>- Custom drink</Text> configurations and titles{"\n"}
+            <Text style={{ fontStyle: 'italic' }}>- Infinite adjustability</Text> for milkiness{"\n"}
+            <Text style={{ fontStyle: 'italic' }}>- Fine tune</Text> sugar quantities and{"\n"}
+            <Text style={{ fontStyle: 'italic' }}>- Unlimited order</Text> numbers{"\n"}
+            <Text>- Left and right handed modes{"\n"}</Text>
+          </Text>
+          <Text style={basicText}>all <Text style={{ fontWeight: 'bold' }}>COMING SOON!</Text></Text>
+          <View style={centeredView}>
+            <Image
+              style={imageStyle}
+              source={require('../images/camera.png')}
+            />
           </View>
         </ScrollView>
         <Footer>
@@ -44,11 +49,26 @@ class Settings extends Component {
             buttonText={'BACK'} buttonType={'cancel'}
             icon={require('../images/back_arrow.png')}
           />
-          <View style={{ width: 230 }} /> 
+          <View style={{ width: 230 }} />
         </Footer>
       </View>
     );
   }
 }
-
+const styles = {
+  imageStyle: {
+    width: 300,
+    height: 300
+  },
+  centeredView: {
+    alignItems: 'center'
+  },
+  basicText: {
+    fontSize: 16,
+    marginTop: 10
+  },
+  bulletList: {
+    alignItems: 'flex-start'
+  }
+};
 export default Settings;
