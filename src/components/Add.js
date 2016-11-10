@@ -127,7 +127,7 @@ class Add extends Component {
             />
           </View>
         </View>
-        <View style={containerStyle}>
+        <View style={[containerStyle, { marginBottom: 30 }]}>
           <Text style={labelStyle}>Sugar</Text>
           <View style={optionStyle}>
             <TouchableOpacity

@@ -16,7 +16,7 @@ const styles = {
     justifyContent: 'center',
     flexDirection: 'row',
     backgroundColor: '#212535',
-    height: (Platform.OS === 'ios') ? 80 : 160,
+    height: (Platform.OS === 'ios') ? 80 : 110,
     paddingBottom: 5
   }
 };
