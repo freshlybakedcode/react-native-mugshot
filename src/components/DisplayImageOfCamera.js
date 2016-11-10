@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, View } from 'react-native';
+import { Text, Image, View, Platform } from 'react-native';
 
 const ImageOfCamera = () => {
   return (
@@ -14,11 +14,11 @@ const styles = {
   cameraImageStyle: {
     width: 200,
     height: 200,
-    backgroundColor: '#ededed',
+    backgroundColor: (Platform.OS === 'ios') ? '#ededed' : 'transparent',
     borderRadius: 100,
     borderColor: '#bcbcbc',
     borderWidth: 1,
-    resizeMode: 'contain'
+    resizeMode: (Platform.OS === 'ios') ? 'contain' : 'cover',
   },
   optionStyle: {
     flex: 2,

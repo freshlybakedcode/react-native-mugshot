@@ -5,8 +5,11 @@ import {
   Text,
   TouchableOpacity,
   Switch,
-  SegmentedControlIOS
+  SegmentedControlIOS,
+  Platform
 } from 'react-native';
+
+// import AndroidSegmented from 'react-native-segmented-android';
 
 import Footer from './Footer';
 import Button from './Button';
@@ -86,6 +89,38 @@ class Add extends Component {
     );
   }
 
+  renderDrinkSelector() {
+    if (Platform.OS === 'ios') {
+      return (
+        <SegmentedControlIOS
+          tintColor={styleBackground}
+          style={{ flex: 2 }}
+          values={['Coffee', 'Tea']}
+          selectedIndex={this.state.drink}
+          onChange={(event) => {
+            this.setState({ drink: event.nativeEvent.selectedSegmentIndex });
+          }}
+        />
+      );
+    }
+    // return (
+    //   <AndroidSegmented
+    //     tintColor={['#ff0000', '#ffffff']}
+    //     style={{
+    //       // width:deviceWidth,
+    //       height: 60,
+    //       backgroundColor: '#fff000',
+    //       justifyContent: 'center',
+    //       alignItems: 'center'
+    //     }}
+    //     childText={['One', 'Two', 'Three']}
+    //     orientation='horizontal'
+    //     selectedPosition={0}
+    //     onChange={this.onSelectPosition}
+    //   />
+    // );
+  }
+
   render() {
     const {
       optionStyle,
@@ -106,15 +141,7 @@ class Add extends Component {
         </View>
         <View style={containerStyle}>
           <Text style={labelStyle}>Drink:</Text>
-          <SegmentedControlIOS
-            tintColor={styleBackground}
-            style={{ flex: 2 }}
-            values={['Coffee', 'Tea']}
-            selectedIndex={this.state.drink}
-            onChange={(event) => {
-              this.setState({ drink: event.nativeEvent.selectedSegmentIndex });
-            }}
-          />
+          {this.renderDrinkSelector()}
           <View style={{ flex: 1 }} />
         </View>
         <View style={containerStyle}>
@@ -203,14 +230,11 @@ const styles = {
     borderRadius: 65,
     alignItems: 'center',
     justifyContent: 'center',
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 0 },
-    // shadowOpacity: 1,
-    // shadowRadius: 1
   },
   addSugarText: {
     color: 'white',
-    fontSize: 22
+    fontSize: 22,
+    marginTop: (Platform.OS === 'ios') ? 0 : -2,
   },
   subtractSugarButton: {
     backgroundColor: styleBackground,
@@ -220,16 +244,12 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 0 },
-    // shadowOpacity: 1,
-    // shadowRadius: 1
   },
   subtractSugarText: {
     color: 'white',
     fontSize: 24,
     lineHeight: 14,
-    marginTop: 11
+    marginTop: (Platform.OS === 'ios') ? 11 : 0,
   }
 };
 

@@ -2,6 +2,7 @@
 "extends": "rallycoding",
   "rules": {
     "global-require": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "linebreak-style": "off"
   }
 }

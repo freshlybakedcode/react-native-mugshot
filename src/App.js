@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       headerText: 'Order list',
-      currentView: 'orderList',
+      currentView: 'addDrink',
       currentOrder: [],
       orderLength: 0
     };
