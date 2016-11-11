@@ -41,7 +41,7 @@ class Settings extends Component {
           <View style={centeredView}>
             <Image
               style={imageStyle}
-              source={require('../images/camera.png')}
+              source={require('../images/camera_no_shadow.png')}
             />
           </View>
         </ScrollView>
