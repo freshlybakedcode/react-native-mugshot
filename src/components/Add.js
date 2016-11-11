@@ -9,12 +9,13 @@ import {
   Platform
 } from 'react-native';
 
-// import AndroidSegmented from 'react-native-segmented-android';
+import SegmentedControlTab from 'react-native-segmented-control-tab';
 
 import Footer from './Footer';
 import Button from './Button';
 import AddCameraImage from './AddCameraImage';
 import AddCameraImageButton from './AddCameraImageButton';
+
 
 const styleBackground = '#52586c';
 
@@ -94,7 +95,6 @@ class Add extends Component {
       return (
         <SegmentedControlIOS
           tintColor={styleBackground}
-          style={{ flex: 2 }}
           values={['Coffee', 'Tea']}
           selectedIndex={this.state.drink}
           onChange={(event) => {
@@ -103,22 +103,17 @@ class Add extends Component {
         />
       );
     }
-    // return (
-    //   <AndroidSegmented
-    //     tintColor={['#ff0000', '#ffffff']}
-    //     style={{
-    //       // width:deviceWidth,
-    //       height: 60,
-    //       backgroundColor: '#fff000',
-    //       justifyContent: 'center',
-    //       alignItems: 'center'
-    //     }}
-    //     childText={['One', 'Two', 'Three']}
-    //     orientation='horizontal'
-    //     selectedPosition={0}
-    //     onChange={this.onSelectPosition}
-    //   />
-    // );
+    return (
+      <SegmentedControlTab
+        values={['Coffee', 'Tea']}
+        tabStyle={{ borderColor: styleBackground }}
+        activeTabStyle={{ backgroundColor: styleBackground, borderColor: styleBackground }}
+        selectedIndex={this.state.drink}
+        onTabPress={(event) => {
+          this.setState({ drink: event });
+        }}
+      />
+    );
   }
 
   render() {
@@ -141,7 +136,9 @@ class Add extends Component {
         </View>
         <View style={containerStyle}>
           <Text style={labelStyle}>Drink:</Text>
-          {this.renderDrinkSelector()}
+          <View style={{ flex: 2 }}>
+            {this.renderDrinkSelector()}
+          </View>
           <View style={{ flex: 1 }} />
         </View>
         <View style={containerStyle}>

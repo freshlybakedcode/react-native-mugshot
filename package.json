@@ -11,6 +11,7 @@
     "react-native": "0.35.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-fs": "^2.0.1-rc.2",
+    "react-native-segmented-control-tab": "^2.0.1",
     "react-native-swipe-list-view": "^0.3.0",
     "react-native-swipeout": "git://github.com/dancormier/react-native-swipeout.git"
   },
