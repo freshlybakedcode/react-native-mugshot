@@ -33,7 +33,9 @@ class Settings extends Component {
             <Text style={{ fontStyle: 'italic' }}>- Infinite adjustability for milkiness{"\n"}</Text>
             <Text style={{ fontStyle: 'italic' }}>- Fine tune sugar quantities{"\n"}</Text>
             <Text style={{ fontStyle: 'italic' }}>- Unlimited order numbers{"\n"}</Text>
-            <Text style={{ fontStyle: 'italic' }}>- Left and right handed modes</Text>
+            <Text style={{ fontStyle: 'italic' }}>- Left and right handed modes{"\n"}</Text>
+            <Text style={{ fontStyle: 'italic' }}>- Astonish and delight your co-workers with your flawless tea rounds!{"\n"}</Text>
+            <Text style={{ fontStyle: 'italic' }}>- Available on both iOS and Android</Text>
           </Text>
           <Text style={basicText}>all <Text style={{ fontWeight: 'bold' }}>COMING SOON!</Text></Text>
           <View style={centeredView}>
