@@ -18,7 +18,7 @@ const styles = {
     borderRadius: 100,
     borderColor: '#bcbcbc',
     borderWidth: 1,
-    resizeMode: (Platform.OS === 'ios') ? 'contain' : 'cover',
+    resizeMode: (Platform.OS === 'ios') ? 'contain' : 'cover'
   },
   optionStyle: {
     flex: 2,
