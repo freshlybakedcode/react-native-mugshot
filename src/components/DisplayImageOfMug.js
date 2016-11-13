@@ -19,7 +19,7 @@ const styles = {
     height: 200,
     backgroundColor: (Platform.OS === 'ios') ? '#007aff' : 'transparent',
     borderRadius: 100,
-    resizeMode: (Platform.OS === 'ios') ? 'contain' : 'cover'
+    resizeMode: 'cover'
   },
   optionStyle: {
     flex: 2,
