@@ -36,10 +36,8 @@ const Button = ({ onPress, buttonText, icon, buttonType, disabledStatus }) => {
 
 const buttonAvailableStyles = {
     clear: {
-      // backgroundColor: 'red'
     },
     settings: {
-      // backgroundColor: 'green'
     },
     add: {
       borderWidth: 6,

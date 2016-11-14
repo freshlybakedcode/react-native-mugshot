@@ -106,7 +106,6 @@ const styles = {
   orderTextStyleDrink: {  //Drink specific (larger)
     fontSize: 22,
     color: '#222636',
-    // fontWeight: 'bold',
     marginBottom: 7
   },
   orderTextStyle: {   //The with milk/sugar bit

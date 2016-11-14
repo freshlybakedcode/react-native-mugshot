@@ -38,7 +38,7 @@ const styles = {
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'contain', // or 'stretch'
+    resizeMode: 'contain',
   },
   imageAligner: {
     alignItems: 'center',

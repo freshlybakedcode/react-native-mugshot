@@ -16,7 +16,6 @@ import Button from './Button';
 import AddCameraImage from './AddCameraImage';
 import AddCameraImageButton from './AddCameraImageButton';
 
-
 const styleBackground = '#52586c';
 
 class Add extends Component {

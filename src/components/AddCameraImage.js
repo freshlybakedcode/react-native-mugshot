@@ -13,7 +13,7 @@ class AddCameraImage extends Component {
   takePicture() {
     this.camera.capture()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.props.returnToOrderList(data);
       })
       .catch(err => console.error(err));
@@ -29,10 +29,8 @@ class AddCameraImage extends Component {
           style={styles.preview}
           aspect={constants.Aspect.fill}
           captureTarget={constants.CaptureTarget.disk}
-          // orientation={Camera.constants.Orientation.landscapeRight}
           captureAudio={false}
         >
-        {/* <Text style={styles.capture} onPress={() => this.takePicture()}>[CAPTURE]</Text> */}
           <TouchableOpacity
             style={styles.captureButtonOuter}
             onPress={() => this.takePicture()}
